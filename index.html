@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp -->
+	<!-- side navbar code from: https://www.w3schools.com/howto/howto_js_collapse_sidebar.asp -->
+	<!-- dropdown button code inspired from https://www.w3schools.com/howto/howto_js_dropdown.asp -->
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+
+	<title>Monoprix </title>
+</head>
+
+<body>
+
+<div class="row">
+	<img
+		alt="logo" 
+		src="./Resources/logo.png">
+
+	<div class="dropdown" style="position: absolute; top: 10px; right: 20px;">
+	  <button onclick="showCart(this)" class="dropbtn">
+	  <img
+			alt = "cart"
+			class = "icon"
+			title = "click here to view the contents of your cart"
+			src = "./Resources/cart-icon.png"/>
+			View the contents of your cart
+		</button>
+	  <div id="myDropdown" class="dropdown-content">
+	    <div id="displayCart"></div>
+	    <div id="emptyCart">
+	    	Your cart has no products.
+	    	You haven't selected any products yet.
+	    </div>
+	  </div>
+	</div>
+
+	<h1>Wecome to MONOPRIX</h1>
+</div>
+
+<div id="Home">
+	<button class="start" style="margin-top: 300px;" onclick="navigate('Search')">Start Shopping</button>
+</div>
+
+<div id="Search">
+	<ul class="breadcrumb">
+		<li><a href="#" onclick="navigate('Home')">Home</a></li>
+		<li>Search</li>
+	</ul>
+
+	<div style="justify-content: center">
+		<h3> How would you like to browse our products </h3>
+		<div>
+			<button class="accordion" name="Categories">Categories</button>
+			<div class="panel pref">
+			  <ul>
+			  	<li><input type="radio" name="categorySearch" value="fruits" checked="true"> Fruits</li>
+			  	<li><input type="radio" name="categorySearch" value="vegetables"> Vegetables</li>
+			  	<li><input type="radio" name="categorySearch" value="sea food"> Sea food</li>
+			  	<li><input type="radio" name="categorySearch" value="other"> All products</li>
+			  	<li><input type="radio" name="categorySearch" value="dairy"> Dairy products</li>
+			  </ul>
+			</div>
+		</div>
+
+		<div>			
+			<button class="accordion" name="Preferences">Preferences</button>
+			<div class="panel pref">
+				<ul>
+					<li><input type="checkbox" name="preferenceSearch" value="organic"><label>only organic products</label></li>
+					<li><input type="checkbox" name="preferenceSearch" value="glutenFree"><label>only gluten free products</label></li>
+					<li><input type="checkbox" name="preferenceSearch" value="vegetarian"><label>only products for vegetarians</label></li>
+					<li><input type="checkbox" name="preferenceSearch" value="lactose"><label>only products for lactose intolerent customers</label></li>
+				</ul>
+			</div>
+		</div>
+
+		<div>		
+			<button class="accordion" name="Advanced search">Advanced search</button>
+			<div class="panel pref">
+			  <ul>
+			  	<li><input type="radio" name="advanced" value="name" checked="true" onclick="advancedSearchClicked('text')" /> Search by name</li>
+			  	<li><input type="radio" name="advanced" value="price" onclick="advancedSearchClicked('number')"/> Search by price</li>
+			  	<li></li>
+			  	<li><input id="advancedSearchInput" type="text" min="0" /></li>
+			  </ul>
+			  <br/>
+			  
+			  NOTE: Please note that the advanced search return only an exact match
+			</div>
+		</div>
+	</div>
+
+	<button id="doSearchButton" style="margin-top: 15px;" onclick="search()" hidden="true">Search</button>
+</div>
+
+<div id="Category">
+	<ul class="breadcrumb">
+		<li><a href="#" onclick="navigate('Home')">Home</a></li>
+		<li><a href="#" onclick="navigate('Search')">Search</a></li>
+		<li id="cat"></li>
+	</ul>
+
+	<div id="mySidebar" class="sidebar">
+  	<label class="closebtn" onclick="toggleSideBar()">&times;</label>
+	<div id="Client" class="">
+		Order by:
+		<div name="order" style="padding-left: 10px;">
+			<div class="row">
+				<div class="col">
+					price
+				</div>
+				<div class="col">
+					<div class="row">
+						<input type="radio" name="order" value="{ &quot;sort&quot;: &quot;price&quot;, &quot;ascending&quot;: true }" checked="true" onclick="populateListProductChoices(this.value)"> ascending
+					</div>
+					<div class="row">
+						<input type="radio" name="order" value="{ &quot;sort&quot;: &quot;price&quot;, &quot;ascending&quot;: false }" onclick="populateListProductChoices(this.value)"> descending
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+	<div id="main">
+		<button class="openbtn" onclick="toggleSideBar()">&#9776; change the order of the products that fit your search for product</button>
+		<div id="Products" class="">
+		  	<h3>These are products that fit your search preferences</h3>
+		  	<br/>
+		  	<!-- <button onclick="navigate('Cart', true)"></button> -->
+			<button id="addCart" type="button" class="block" onclick="selectedItems()">Add selected items to cart.</button>
+			<div id="displayProduct" style="margin-left: 30%;"></div>
+		</div>
+	</div>
+</div>
+
+<div id="Cart">
+	<ul class="breadcrumb">
+		<li><a href="#" onclick="navigate('Home')">Home</a></li>
+		<li><a href="#" onclick="navigate('Search')">Search</a></li>
+		<li id="cat" onclick="navigate('Category', true)"><a href="#">Products</a></li>
+		<li>Cart</li>
+	</ul>
+
+	<div id="displayCart"></div>
+</div>
+	<footer>
+		Copyright 2021 Youssef Jallouli
+	</footer>
+<script src="scripts/lateralBar.js"></script>
+<script src="scripts/products.js"></script>
+<script src="scripts/harmonic.js"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/scrollingMenu.js"></script>
+<script type="text/javascript">
+	navigate("Home");
+</script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+div.row {
+  display: flex;
+}
+
+
+
+h1 {
+  color: #F00;
+}
+
+img.icon {
+  height: 30px;
+  width: 30px;
+  color:#f00;
+}
+
+button {
+  border: 2px solid #F00;
+  background-color: white;
+  color: #F00;
+  border-radius: 15px;
+  text-align: center;
+}
+
+button.start {
+  width: 150px;
+  height: 50px;
+}
+
+button:hover {
+  background-color: #F8D5B7;
+}
+
+button.disabled:hover {
+  background-color: grey;
+}
+
+.product-name {
+  color: ; 
+}
+
+input.quantity {
+  width: fit-content;
+  height: fit-content;
+}
+div {
+  text-align: center;
+}
+
+div.col {
+  display: grid;
+  margin: 2px 10px;
+}
+
+div.pref {
+  text-align: left;
+  margin-left: 35%;
+}
+
+img {
+  width: 70px;
+  height: 70px;
+  margin: 5px 15px;
+}
+footer {
+  position: fixed;
+  bottom: 0px;
+  margin-top: 50px;
+  right: 0px;
+}
+
+select{
+  height: fit-content;
+  font-size: 1em !important;
+}
+
+body {
+  font-size:  18px !important;
+}
+
+/* sidebar section */
+/* The sidebar menu */
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  /*top: 0;*/
+  left: 0;
+  background-color: white; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar label {
+  /*padding: 8px 8px 8px 32px;*/
+  text-decoration: none;
+  padding-left: 10px;
+  /*font-size: 25px;*/
+  font-size: 12px;
+  color: #F00;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar label:hover {
+  color: #F8D5B7;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: white;
+  color: #F00;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #F8D5B7;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s; /* If you want a transition effect */
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+.cart {
+  position: absolute;
+  right: 50px;
+  top: 10px;
+
+}
+
+/* inspired from https://www.w3schools.com/howto/howto_css_breadcrumbs.asp */
+
+/* Style the list */
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  text-align: left;
+}
+
+
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+
+
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+
+ul.breadcrumb li a {
+  color: #F00;
+}
+
+ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+
+ul.breadcrumb li a:hover {
+  color: #F8D5B7;
+  text-decoration: underline;
+}
+
+/*accordion section code from  https://www.w3schools.com/howto/howto_js_accordion.asp*/
+
+.accordion {
+  background-color: white;
+  color: #F00;
+  cursor: pointer;
+  padding: 18px;
+  width: 400px;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+
+.active, .accordion:hover {
+  background-color: #F8D5B7;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  /*width: 400px;*/
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #F00;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+/*dropdown section*/
+
+/* Dropdown Button */
+.dropbtn {
+  color: #F00;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #F8D5B7;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  background-color: white;
+  /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+  z-index: 1;
+}
+
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown-content a:hover {background-color: white}
+
+
+.show {display:block;}
